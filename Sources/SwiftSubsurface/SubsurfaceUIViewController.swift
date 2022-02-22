@@ -17,7 +17,6 @@ public class SubsurfaceUIViewController: UIViewController {
     
     lazy var displayLink: CADisplayLink = {
         let link = CADisplayLink.init(target: self, selector: #selector(enterFrame))
-        link.add(to: RunLoop.current, forMode: RunLoop.Mode.common)
         return link
     }()
     
