@@ -13,6 +13,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           repository: cdata/subconscious-rs
+          token: ${{ secrets.GH_PAT }}
           path: subconscious-rs
       - name: Cache crates
         uses: actions/cache@v2
