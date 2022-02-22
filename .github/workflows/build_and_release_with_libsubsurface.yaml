@@ -1,0 +1,36 @@
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+
+name: Build and release with libsubsurface
+
+jobs:
+  build-and-publish-libsubsurface:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/checkout@v2
+        with:
+          repository: cdata/subconscious-rs
+          path: subconscious-rs
+      - name: Cache crates
+        uses: actions/cache@v2
+        with:
+          path: |
+            ~/.cargo
+            ./subconscious-rs/target
+          key: ${{ runner.os }}-cargo
+      - name: Bootstrap and build libsubsurface
+        run: |
+          cd subconscious-rs/subsurface
+          ./scripts/bootstrap.sh
+          ./scripts/build.sh
+        shell: bash
+      - name: Release with libsubsurface
+        uses: softprops/action-gh-release@v1
+        with:
+          prerelease: true,
+          files: |
+            ./subconscious-rs/subsurface/dist/libsubsurface.zip
+            ./subconscious-rs/subsurface/dist/CHECKSUM
