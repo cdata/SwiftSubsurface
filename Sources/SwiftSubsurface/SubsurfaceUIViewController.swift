@@ -17,6 +17,7 @@ public class SubsurfaceUIViewController: UIViewController {
     
     lazy var displayLink: CADisplayLink = {
         let link = CADisplayLink.init(target: self, selector: #selector(enterFrame))
+        link.frameInterval = 10;
         return link
     }()
     
