@@ -27,8 +27,8 @@ let package = Package(
             dependencies: ["LibSubsurface"]),
         .binaryTarget(
             name: "LibSubsurface",
-            url: "https://github.com/cdata/SwiftSubsurface/releases/download/v0.0.5/libsubsurface.zip",
-            checksum: "5ffb6477f311a45dca775a83154855a1b23843fa9f2f9bf5409e0436c40082da"),
+            url: "https://github.com/cdata/SwiftSubsurface/releases/download/v0.0.6/libsubsurface.zip",
+            checksum: "0f8fc4ba99889b7e1c6dac2aa5d94687881697f6364c7e4dd288d1f4bcc4bb10"),
         .testTarget(
             name: "SwiftSubsurfaceTests",
             dependencies: ["SwiftSubsurface"]),
